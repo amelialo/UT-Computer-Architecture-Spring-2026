@@ -526,7 +526,7 @@ switch(opcode){
     offset6 = sext(instr & 0x3F, 6);
     //base + offset
     address = CURRENT_LATCHES.REGS[baseR] + offset6; //dont need to multiple by 2 bc reading bytes
-    if (address & 1){
+    if (address & 1){ // odd
       val = MEMORY[address >> 1][1];  // divide address by 2 for row, grab high byte
     }
     else{
